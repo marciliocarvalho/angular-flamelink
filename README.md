@@ -51,7 +51,7 @@ Then, import Flamelink and AngularFire in your app.module.ts:
 @Component({
 	// ...
 })
-export class PageComponent implements OnInit, {
+export class PageComponent {
 
 	public projects = this.flamelink.valueChanges({
 		schemaKey: 'Projects',
