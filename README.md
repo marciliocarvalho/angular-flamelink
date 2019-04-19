@@ -46,27 +46,31 @@ Then, import Flamelink and AngularFire in your app.module.ts:
 
 ## Usage
 
+**page.component.ts**
 ```
-
 @Component({
 	// ...
 })
-export class Component implements OnInit, {
+export class PageComponent implements OnInit, {
+
+	public projects = this.flamelink.valueChanges({
+		schemaKey: 'Projects',
+		filters: [['category', '==', 'web']]
+		// ... other settings
+	});
+
 	constructor(
 		private flamelink: AngularFlamelink
 	) { }
 
-	ngOnInit() {
-		this.flamelink.valueChanges({
-			schemaKey: 'Projects',
-			filters: [['category', '==', 'web']]
-		}).subscribe( results => {
-			console.log(results);
-		})
-	}
-
 }
+```
 
+**page.component.html**
+```
+<div *ngFor="let project of projects | async">
+	{{ project.title }}
+</div>
 ```
 
 ## Api
