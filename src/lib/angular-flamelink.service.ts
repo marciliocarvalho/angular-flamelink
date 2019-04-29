@@ -1,13 +1,14 @@
 
 // Flamelink app is always required
-import * as _flamelink from 'flamelink';
-const flamelink = _flamelink;
+import * as _flamelink from 'flamelink/app';
+const flamelink = _flamelink['default'];
+
 // Add additional modules that you want to use
-// import 'flamelink/content';
-// import 'flamelink/storage';
-// import 'flamelink/settings'
+import 'flamelink/content';
+import 'flamelink/storage';
+import 'flamelink/settings'
 // import 'flamelink/navigation'
-// import 'flamelink/users'
+import 'flamelink/users'
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
