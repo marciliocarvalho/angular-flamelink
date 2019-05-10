@@ -6,9 +6,9 @@ const flamelink = _flamelink['default'];
 // Add additional modules that you want to use
 import 'flamelink/content';
 import 'flamelink/storage';
-import 'flamelink/settings'
+import 'flamelink/settings';
 // import 'flamelink/navigation'
-import 'flamelink/users'
+import 'flamelink/users';
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -56,14 +56,19 @@ export class AngularFlamelink {
 					}
 					if (error) {
 						subscriber.error(error);
-					} else if (data) {
+					} else {
 						let single = !!options.entryId;
-						if (data._fl_meta_) {
+						if (data  && data._fl_meta_) {
 							if (data._fl_meta_.schemaType === 'single') {
 								single = true;
 							}
 						}
-						const parsedData = single ? data : Object.keys(data).map(i => data[i]);
+
+						let parsedData = single ? null : [];
+						if (data) {
+							parsedData = single ? data : Object.keys(data).map(i => data[i]);
+						}
+
 						subscriber.next(parsedData);
 					}
 				}
