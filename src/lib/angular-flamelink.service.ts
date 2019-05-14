@@ -29,7 +29,7 @@ interface GetOptionsMultiple extends CF.Get {
 })
 export class AngularFlamelink {
 
-	public app: _flamelink.App;
+	public app: _flamelink.app.App;
 
 	constructor(
 		public angularFire: AngularFirestore,
