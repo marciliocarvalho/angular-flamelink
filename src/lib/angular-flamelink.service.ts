@@ -7,7 +7,7 @@ const flamelink = _flamelink['default'];
 import 'flamelink/content';
 import 'flamelink/storage';
 import 'flamelink/settings';
-// import 'flamelink/navigation'
+import 'flamelink/navigation'
 import 'flamelink/users';
 
 import { Injectable } from '@angular/core';
